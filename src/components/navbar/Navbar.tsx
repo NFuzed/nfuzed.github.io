@@ -12,6 +12,7 @@ export default  function Navbar(){
 
                 <ul className={styles.links}>
                     <li><a href={'#hero'}>Home</a></li>
+                    <li><a href={'#projects'}>Projects</a></li>
                 </ul>
             </nav>
         </header>

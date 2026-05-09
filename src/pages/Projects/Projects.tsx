@@ -22,6 +22,13 @@ const PROJECTS = [
         accentDim: "rgba(55,138,221,0.08)",
         accentBorder: "rgba(55,138,221,0.22)",
         metric: {value: "93%", label: "accuracy on unseen schematics"},
+        images: [
+            "home-page.png",
+            "diagrams-page.png",
+            "entities-page.png",
+            "populated-home-page.png",
+            "results.png"
+        ] as string[],
     },
     {
         id: "minecraft-turtle",
@@ -43,6 +50,11 @@ const PROJECTS = [
         accentDim: "rgba(29,158,117,0.07)",
         accentBorder: "rgba(29,158,117,0.2)",
         metric: {value: "2-way", label: "real-time game ↔ backend sync"},
+        images: [
+            // Import your images at the top of this file and reference them here, e.g.:
+            // minecraft1,
+            // minecraft2,
+        ] as string[],
     },
 ];
 
@@ -70,6 +82,16 @@ function useInView(threshold = 0.1) {
 export default function Projects() {
     const {ref, inView} = useInView(0.05);
     const [hovered, setHovered] = useState<string | null>(null);
+    const [lightbox, setLightbox] = useState<string | null>(null);
+
+    // Close lightbox on Escape
+    useEffect(() => {
+        const handler = (e: KeyboardEvent) => {
+            if (e.key === "Escape") setLightbox(null);
+        };
+        window.addEventListener("keydown", handler);
+        return () => window.removeEventListener("keydown", handler);
+    }, []);
 
     return (
         <section
@@ -126,7 +148,6 @@ export default function Projects() {
                                         <h3 className="proj__title">{p.title}</h3>
                                         <span className="proj__period">{p.period}</span>
                                     </div>
-
                                     {p.github && (
                                         <a
                                             href={p.github}
@@ -144,6 +165,22 @@ export default function Projects() {
                                 </div>
 
                                 <p className="proj__summary">{p.summary}</p>
+
+                                {/* ── Image strip ── */}
+                                {p.images.length > 0 && (
+                                    <div className="proj__images">
+                                        {p.images.map((photoID) => (
+                                            <button
+                                                key={photoID}
+                                                className="proj__image-thumb"
+                                                onClick={() => setLightbox(`/projects/${p.id}/${photoID}`)}
+                                                aria-label="View image fullscreen"
+                                            >
+                                                <img src={`/projects/${p.id}/${photoID}`} alt="" loading="lazy"/>
+                                            </button>
+                                        ))}
+                                    </div>
+                                )}
 
                                 <ul className="proj__highlights">
                                     {p.highlights.map((h) => (
@@ -168,6 +205,28 @@ export default function Projects() {
                 </div>
 
             </div>
+
+            {/* ── Lightbox ── */}
+            {lightbox && (
+                <div
+                    className="proj__lightbox"
+                    onClick={() => setLightbox(null)}
+                    role="dialog"
+                    aria-modal="true"
+                    aria-label="Image preview"
+                >
+                    <div className="proj__lightbox-inner" onClick={(e) => e.stopPropagation()}>
+                        <img src={lightbox} alt="" className="proj__lightbox-img"/>
+                        <button
+                            className="proj__lightbox-close"
+                            onClick={() => setLightbox(null)}
+                            aria-label="Close preview"
+                        >
+                            ✕
+                        </button>
+                    </div>
+                </div>
+            )}
         </section>
     );
 }

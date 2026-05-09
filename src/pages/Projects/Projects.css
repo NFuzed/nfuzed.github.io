@@ -99,7 +99,7 @@
     background: rgba(10, 18, 34, 0.7);
     border: 0.5px solid var(--color-border);
     border-radius: 10px;
-    overflow: hidden;
+    overflow: visible;
 
     opacity: 0;
     transform: translateY(20px);
@@ -180,6 +180,7 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
+    overflow: hidden;
 }
 
 .proj__card-top {
@@ -298,6 +299,145 @@
 .proj__card--hovered .proj__chip {
     color: rgba(99, 168, 235, 0.75);
     border-color: rgba(55, 138, 221, 0.28);
+}
+
+/* ─── Image count badge ──────────────────────────────── */
+.proj__image-count {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: rgba(99, 168, 235, 0.35);
+    white-space: nowrap;
+    align-self: flex-start;
+    padding-top: 4px;
+}
+
+/* ─── Image strip ────────────────────────────────────── */
+.proj__images {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    overflow-y: visible;
+    padding-bottom: 4px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(55, 138, 221, 0.5) transparent;
+}
+
+.proj__images::-webkit-scrollbar {
+    height: 3px;
+}
+
+.proj__images::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.proj__images::-webkit-scrollbar-thumb {
+    background: rgba(55, 138, 221, 0.2);
+    border-radius: 2px;
+}
+
+.proj__image-thumb {
+    flex-shrink: 0;
+    width: 200px;
+    height: 130px;
+    padding: 0;
+    border: 0.5px solid var(--accent-border);
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    background: rgba(10, 18, 34, 0.8);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.proj__image-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.proj__image-thumb:hover {
+    transform: scale(1.03);
+    border-color: var(--accent);
+    box-shadow: 0 0 14px var(--accent-border), 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.proj__image-thumb:hover img {
+    transform: scale(1.05);
+}
+
+/* ─── Lightbox ───────────────────────────────────────── */
+.proj__lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(4, 8, 18, 0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(6px);
+    animation: lightboxIn 0.2s ease;
+}
+
+@keyframes lightboxIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.proj__lightbox-inner {
+    position: relative;
+    max-width: 90vw;
+    max-height: 85vh;
+    animation: lightboxScale 0.25s ease;
+}
+
+@keyframes lightboxScale {
+    from {
+        transform: scale(0.94);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.proj__lightbox-img {
+    display: block;
+    max-width: 90vw;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 8px;
+    border: 0.5px solid rgba(55, 138, 221, 0.2);
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.6);
+}
+
+.proj__lightbox-close {
+    position: absolute;
+    top: -14px;
+    right: -14px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(14, 22, 42, 0.95);
+    border: 0.5px solid rgba(55, 138, 221, 0.25);
+    color: rgba(160, 200, 235, 0.6);
+    font-size: 13px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.proj__lightbox-close:hover {
+    color: #e8f3ff;
+    border-color: rgba(55, 138, 221, 0.5);
 }
 
 /* ─── Responsive ─────────────────────────────────────── */

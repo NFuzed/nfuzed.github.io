@@ -156,18 +156,6 @@ export default function Intro() {
                     </button>
                 </div>
 
-                <div className="intro__pipeline">
-                    {["Ingest", "Transform", "Simulate", "Insight"].map((step, i, arr) => (
-                        <div key={step} className="intro__pipeline-row">
-                            <div className="intro__pipeline-node" style={{animationDelay: `${0.6 + i * 0.15}s`}}>
-                                <span className="intro__pipeline-idx">0{i + 1}</span>
-                                <span className="intro__pipeline-label">{step}</span>
-                            </div>
-                            {i < arr.length - 1 && <div className="intro__pipeline-arrow"/>}
-                        </div>
-                    ))}
-                </div>
-
                 <div className="intro__scroll">
                     <span>scroll</span>
                     <div className="intro__scroll-line"/>

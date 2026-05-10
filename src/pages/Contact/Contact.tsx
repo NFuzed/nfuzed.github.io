@@ -16,9 +16,9 @@ const LINKS = [
     },
     {
         label: "GitHub",
-        value: "github.com/furqanfaruqui",
-        href: "https://github.com/furqanfaruqui",
-        display: "github.com/furqanfaruqui",
+        value: "github.com/nfuzed",
+        href: "https://github.com/nfuzed",
+        display: "github.com/nfuzed",
     },
 ];
 

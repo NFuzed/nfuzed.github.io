@@ -4,17 +4,22 @@ import Experience from "./pages/Experience/Experience.tsx";
 import Projects from "./pages/Projects/Projects.tsx";
 import Skills from "./pages/Skills/Skills.tsx";
 import Contact from "./pages/Contact/Contact.tsx";
+import NavBar from "./components/NavBar/NavBar.tsx";
 import "./App.css";
 
 export default function App() {
+
     return (
-        <main className="page" id="page">
-            <Intro/>
-            <About/>
-            <Experience/>
-            <Projects/>
-            <Skills/>
-            <Contact/>
-        </main>
+        <>
+            <NavBar/>
+            <main className="page" id="page">
+                <Intro/>
+                <About/>
+                <Experience/>
+                <Projects/>
+                <Skills/>
+                <Contact/>
+            </main>
+        </>
     );
 }

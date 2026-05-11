@@ -1,0 +1,136 @@
+/* ─── NavBar ─────────────────────────────────────────── */
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    height: 56px;
+    padding: 0 7vw;
+    display: flex;
+    align-items: center;
+
+    background: rgba(7, 13, 26, 0.75);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 0.5px solid rgba(55, 138, 221, 0.08);
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.nav--scrolled {
+    background: rgba(7, 13, 26, 0.95);
+    border-bottom-color: rgba(55, 138, 221, 0.15);
+}
+
+/* ─── Links row ──────────────────────────────────────── */
+.links {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ─── Home / name button ─────────────────────────────── */
+.navbar-home-button {
+    font-family: 'Syne', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: #cde5f7;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.2s ease;
+}
+
+.navbar-home-button:hover {
+    color: #e8f3ff;
+}
+
+/* ─── Right side nav items ───────────────────────────── */
+.nav__items {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+/* ─── Nav buttons ────────────────────────────────────── */
+.navbar-button {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(140, 185, 220, 0.4);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px 14px;
+    border-radius: 4px;
+    position: relative;
+    transition: color 0.2s ease;
+
+    opacity: 0;
+    animation: navFadeIn 0.4s ease forwards;
+}
+
+/* Underline indicator */
+.navbar-button::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 14px;
+    right: 14px;
+    height: 0.5px;
+    background: #378add;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.2s ease;
+}
+
+.navbar-button:hover {
+    color: rgba(180, 215, 240, 0.8);
+}
+
+.navbar-button:hover::after {
+    transform: scaleX(1);
+}
+
+.navbar-button--active {
+    color: #85b7eb;
+}
+
+.navbar-button--active::after {
+    transform: scaleX(1);
+    opacity: 0.6;
+}
+
+@keyframes navFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ─── Responsive ─────────────────────────────────────── */
+@media (max-width: 600px) {
+    .nav {
+        padding: 0 5vw;
+        height: 50px;
+    }
+
+    .navbar-button {
+        font-size: 10px;
+        padding: 6px 8px;
+        letter-spacing: 0.06em;
+    }
+
+    .navbar-button::after {
+        left: 8px;
+        right: 8px;
+    }
+}

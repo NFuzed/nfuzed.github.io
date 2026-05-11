@@ -48,7 +48,7 @@
     color: #e8f3ff;
 }
 
-/* ─── Right side nav items ───────────────────────────── */
+/* ─── Right side nav items (desktop) ────────────────── */
 .nav__items {
     display: flex;
     align-items: center;
@@ -74,7 +74,6 @@
     animation: navFadeIn 0.4s ease forwards;
 }
 
-/* Underline indicator */
 .navbar-button::after {
     content: '';
     position: absolute;
@@ -116,21 +115,117 @@
     }
 }
 
+/* ─── Hamburger button ───────────────────────────────── */
+.nav__hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: background 0.2s ease;
+}
+
+.nav__hamburger:hover {
+    background: rgba(55, 138, 221, 0.08);
+}
+
+.nav__hamburger-line {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: rgba(140, 185, 220, 0.6);
+    border-radius: 1px;
+    transition: transform 0.25s ease, opacity 0.25s ease, width 0.25s ease;
+    transform-origin: center;
+}
+
+/* Animate to X when open */
+.nav__hamburger--open .nav__hamburger-line:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.nav__hamburger--open .nav__hamburger-line:nth-child(2) {
+    opacity: 0;
+    width: 0;
+}
+
+.nav__hamburger--open .nav__hamburger-line:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+/* ─── Mobile drawer ──────────────────────────────────── */
+.nav__drawer {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background: rgba(7, 13, 26, 0.97);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 0.5px solid rgba(55, 138, 221, 0.1);
+    display: flex;
+    flex-direction: column;
+    padding: 12px 7vw 20px;
+    gap: 4px;
+
+    transform: translateY(-8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.nav__drawer--open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+}
+
+.nav__drawer-button {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(140, 185, 220, 0.5);
+    background: none;
+    border: none;
+    border-bottom: 0.5px solid rgba(55, 138, 221, 0.07);
+    cursor: pointer;
+    padding: 14px 0;
+    text-align: left;
+    transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.nav__drawer-button:last-child {
+    border-bottom: none;
+}
+
+.nav__drawer-button:hover {
+    color: #85b7eb;
+    padding-left: 6px;
+}
+
 /* ─── Responsive ─────────────────────────────────────── */
-@media (max-width: 600px) {
+@media (max-width: 640px) {
     .nav {
         padding: 0 5vw;
-        height: 50px;
     }
 
-    .navbar-button {
-        font-size: 10px;
-        padding: 6px 8px;
-        letter-spacing: 0.06em;
+    .nav__items {
+        display: none;
     }
 
-    .navbar-button::after {
-        left: 8px;
-        right: 8px;
+    .nav__hamburger {
+        display: flex;
+    }
+
+    .nav__drawer {
+        padding: 12px 5vw 20px;
     }
 }

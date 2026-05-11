@@ -11,7 +11,7 @@
     justify-content: flex-start;
     overflow: hidden;
     font-family: 'Fraunces', sans-serif;
-    padding: 56px;
+    padding-top: 36px;
 
     opacity: 0;
     transform: translateY(12px);

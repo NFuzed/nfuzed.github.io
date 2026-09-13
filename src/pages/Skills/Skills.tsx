@@ -5,12 +5,13 @@ const SKILL_GROUPS = [
     {
         id: "languages",
         label: "Languages",
-        skills: ["Python", "Java", "C++", "Kotlin", "SQL", "Bash", "Lua"],
+        skills: ["Python", "Java", "C++", "Kotlin", "SQL", "Bash", "Lua", "Rust"],
     },
     {
         id: "ml",
         label: "ML & Vision",
-        skills: ["PyTorch", "TensorFlow", "OpenCV", "Scikit-learn", "Faster R-CNN", "CLIP", "Tesseract OCR"],
+        skills: ["PyTorch", "TensorFlow", "OpenCV", "Scikit-learn", "Faster R-CNN", "CLIP", "Tesseract OCR",
+            "MCMC Sampling", "Bayesian Inference"],
     },
     {
         id: "frameworks",

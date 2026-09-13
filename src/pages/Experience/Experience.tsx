@@ -3,12 +3,35 @@ import "./Experience.css";
 
 const EXPERIENCE = [
     {
+        id: "oxford-research",
+        company: "University of Oxford · Google Deepmind",
+        role: "Research Software Engineer",
+        period: "Jul 2026 — Present",
+        tag: "Current",
+        location: "Oxford, UK",
+        highlights: [
+            /*
+
+•
+•
+             */
+            "Designing and implementing a Bayesian inference engine in Rust for computational biology applications.",
+            "Implementing core probabilistic inference methods from first principles at the systems level.",
+            "Selected as part of a competitive research-readiness cohort jointly run by Oxford and Google DeepMind.",
+            "This project is still ongoing, however some samplers have been validated against distributions with known " +
+            "answers, then timed them against Python.",
+            "The data used was a regression model with 10 points. Both Rust and Python samplers ran 40 chains with a " +
+            "chain size of 20,000. The processing time for Python was 3139.2ms and Rust at 261.8ms. The same sampler " +
+            "ran 12x faster in Rust than in Python.",
+        ],
+        stack: ["Python", "Rust", "Statistics", "Bayes' Theorem", "Git"],
+    },
+    {
         id: "sopra-se",
         company: "Sopra Steria · Graffica",
         role: "Software Engineer",
-        period: "Jan 2025 — Present",
+        period: "Jan 2025 — Jul 2026",
         location: "London, UK",
-        tag: "Current",
         highlights: [
             "Trained a Tesseract OCR model and implemented symbol detection for GSDR, cutting schematic parsing time from hours to 10 minutes with 95% accuracy.",
             "Automated detection and approval of graph styling changes in integration tests, saving 2–3 hours per week of QA overhead.",
@@ -46,7 +69,7 @@ const EXPERIENCE = [
         stack: ["Java", "Spring Boot", "SQL", "Azure"],
     }, {
         id: "starbucks",
-        company: "Welcome Break - Starbucks",
+        company: "Welcome Break · Starbucks",
         role: "Barista",
         period: "Mar 2021 - Aug 2022",
         location: "London, UK",

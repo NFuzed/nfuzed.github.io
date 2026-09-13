@@ -3,8 +3,63 @@ import "./Projects.css";
 
 const PROJECTS = [
     {
+        id: "bayesrs",
+        index: "04",
+        title: "Bayesrs",
+        period: "Jul 2026 — Present",
+        category: "Statistics · Systems Programming",
+        github: "https://github.com/OxfordRSE/bayesrs",
+        summary:
+            "An MCMC toolkit written in Rust with a single ask/tell interface, so a researcher can define a model " +
+            "once in Python, R, or C and swap between the available sampling algorithms without rewriting anything.",
+        highlights: [
+            "Implemented samplers (Random Walk Metropolis, Adaptive Metropolis, Gibbs, Population MCMC, Emcee) against one shared Rust trait",
+            "Designed an ask/tell protocol that keeps the iteration loop on the user's side, removing the cross-language callback bugs that come with library-owned loops",
+            "Cut sampling time on a 40-chain, 20,000-iteration regression from 3139 ms to 262 ms",
+            "Built a typed parameter schema (Real, Bounded, Simplex, CovMatrix) that handles constraints and Jacobians automatically",
+            "Images are the results of running the library against a linear regression model to derive parameters of (β, ε and m) in y = mx + β + ε"
+        ],
+        stack: ["Rust", "Python", "PyO3", "NumPy"],
+        accent: "#d98324",
+        accentDim: "rgba(197,162,124,0.08)",
+        accentBorder: "rgba(217,131,36,0.22)",
+        metric: {value: "12x", label: "faster than the Python baseline"},
+        images: [
+            "fit_with_uncertainty.png",
+            "trace-plots.png",
+            "posterior-histograms.png"
+        ] as string[],
+    },
+    {
+        id: "mcmc-lab",
+        index: "03",
+        title: "MCMC Lab",
+        period: "Jul 2026 — Aug 2026",
+        category: "AI · Statistics",
+        github: "https://nfuzed.github.io/MCMC-Lab/",
+        summary:
+            "An interactive companion to BayesRS that teaches Bayesian inference from first principles, building from a coin flip up to watching five MCMC samplers explore the same posterior side by side.",
+        highlights: [
+            "Builds intuition in stages: coin-flip priors, a frog-on-lily-pads Markov chain, then full MCMC sampling",
+            "Animates five samplers (Random Walk Metropolis, Adaptive Metropolis, Gibbs, Population MCMC, Emcee) on a shared target distribution",
+            "Exposes the levers that matter, including step size, chain count, and acceptance rate, so tuning behaviour is visible rather than described",
+            "Closes on a worked Bayesian linear regression case study linking the visualisations back to the Rust library",
+        ],
+        stack: ["TypeScript", "React"],
+        accent: "#6d5ce7",
+        accentDim: "rgba(109,92,231,0.08)",
+        accentBorder: "rgba(109,92,231,0.22)",
+        metric: {value: "5", label: "samplers visualised side by side"},
+        images: [
+            "coin-flip.png",
+            "frog-lily-pads.png",
+            "sampling-methods.png",
+            "case-study.png"
+        ] as string[],
+    },
+    {
         id: "symbol-trainer",
-        index: "01",
+        index: "02",
         title: "Schematic Symbol Trainer",
         period: "Feb 2025 — Jun 2025",
         category: "Computer Vision · AI Tooling",
@@ -32,7 +87,7 @@ const PROJECTS = [
     },
     {
         id: "minecraft-turtle",
-        index: "02",
+        index: "01",
         title: "Minecraft Turtle Integration System",
         period: "Mar 2024 — Jun 2024",
         category: "Systems Architecture · Full Stack",
@@ -51,9 +106,6 @@ const PROJECTS = [
         accentBorder: "rgba(29,158,117,0.2)",
         metric: {value: "2-way", label: "real-time game ↔ backend sync"},
         images: [
-            // Import your images at the top of this file and reference them here, e.g.:
-            // minecraft1,
-            // minecraft2,
         ] as string[],
     },
 ];

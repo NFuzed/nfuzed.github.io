@@ -21,8 +21,8 @@ const FOCUS_AREAS = [
     },
     {
         index: "03",
-        title: "ML · Computational biology",
-        body: "Applying machine learning to biological datasets as part of an upcoming research internship, bridging software engineering rigour with scientific inquiry.",
+        title: "ML | MCMC Sampling",
+        body: "Founder of Bayers - A Rust library for Bayesian inference with an ask/tell interface.",
     },
 ];
 
@@ -85,11 +85,12 @@ export default function About() {
                         data-driven systems for demanding real-world domains.
                     </p>
                     <p className="about__bio">
-                        Currently at Graffica / Sopra Steria, I've shipped national-level
-                        software and independently built AI-assisted tools that turn hours
-                        of repetitive technical work into minutes. I'm drawn to problems
-                        where software meets the physical world, infrastructure, biology,
-                        robotics pipelines.
+                        Currently developing Bayers - a Bayesian inference built in Rust.
+                    </p>
+                    <p className="about__bio">
+                        I've shipped national-level software and independently built AI-assisted tools that turn hours
+                        of repetitive technical work into minutes. I'm drawn to problems where software has a real world
+                        impact.
                     </p>
 
                     <div className="about__award">
